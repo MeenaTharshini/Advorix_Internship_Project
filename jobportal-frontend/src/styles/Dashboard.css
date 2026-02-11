@@ -1,0 +1,47 @@
+.dash-container {
+  min-height: 100vh;
+  background: linear-gradient(120deg, #f5f7fb, #e8eef7);
+  padding: 60px;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+}
+
+.dash-container h1 {
+  color: #2c3e50;
+  font-size: 34px;
+}
+
+.dash-cards {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 60px;
+  flex-wrap: wrap;
+}
+
+.dash-card {
+  width: 260px;
+  padding: 40px;
+  border-radius: 18px;
+  background: white;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: 0.3s ease;
+  border-top: 6px solid #4a90e2;
+}
+.logout{
+  width: 60px;
+  padding: 0px;
+  border-radius: 18px;
+  color: red;
+  padding: 0cap;
+}
+
+.dash-card h2 {
+  color: #4a90e2;
+}
+
+.dash-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 45px rgba(0,0,0,0.15);
+}
