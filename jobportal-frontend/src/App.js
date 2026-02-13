@@ -6,6 +6,7 @@ import Jobs from "./pages/Jobs";
 import PostJob from "./pages/PostJob";
 import RecruiterDashboard from "./pages/RecruiterDashboard";
 import Applications from "./pages/Applications";
+import EditJob from "./pages/EditJob";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/jobs" element={<Jobs />} />
         <Route path="/postjob" element={<PostJob />} />
         <Route path="/applications" element={<Applications />} />
+        <Route path="/editjob/:id" element={<EditJob />} />
         <Route path="/recruiter-dashboard" element={<RecruiterDashboard />} />
       </Routes>
     </BrowserRouter>

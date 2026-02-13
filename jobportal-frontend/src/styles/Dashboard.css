@@ -1,13 +1,15 @@
-.dash-container {
+
+
+.dashboard-container {
   min-height: 100vh;
-  background: linear-gradient(120deg, #f5f7fb, #e8eef7);
+  background: linear-gradient(135deg, #4a90e2, #6dd5fa);
   padding: 60px;
   font-family: "Poppins", sans-serif;
   text-align: center;
 }
 
-.dash-container h1 {
-  color: #2c3e50;
+.dashboard-container h1 {
+  color: white;
   font-size: 34px;
 }
 
@@ -29,13 +31,6 @@
   transition: 0.3s ease;
   border-top: 6px solid #4a90e2;
 }
-.logout{
-  width: 60px;
-  padding: 0px;
-  border-radius: 18px;
-  color: red;
-  padding: 0cap;
-}
 
 .dash-card h2 {
   color: #4a90e2;
@@ -45,3 +40,4 @@
   transform: translateY(-8px);
   box-shadow: 0 22px 45px rgba(0,0,0,0.15);
 }
+

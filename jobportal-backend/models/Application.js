@@ -11,13 +11,12 @@ const applicationSchema = new mongoose.Schema({
     ref: "Job",
     required: true
   },
-  applicant: String,   // ⭐ store name for easy display
 
   status: {
     type: String,
-    default: "Applied",
-    enum: ['Applied', 'Reviewed', 'Accepted', 'Rejected']
+    enum: ['Applied', 'Reviewed', 'Accepted', 'Rejected'],
+    default: "Applied"
   }
 }, { timestamps: true });
 
-module.exports = mongoose.models.Application || mongoose.model("Application", applicationSchema);
+module.exports = mongoose.model("Application", applicationSchema);

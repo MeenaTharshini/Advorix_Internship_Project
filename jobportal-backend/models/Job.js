@@ -5,7 +5,13 @@ const jobSchema = new mongoose.Schema({
   company: String,
   location: String,
   description: String,
-  postedBy: String
-});
 
-module.exports = mongoose.models.Job || mongoose.model("Job", jobSchema);
+  recruiterId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required:true
+  }
+
+}, { timestamps: true });
+
+module.exports = mongoose.model("Job", jobSchema);

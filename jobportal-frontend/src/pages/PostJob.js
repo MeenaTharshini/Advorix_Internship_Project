@@ -55,11 +55,12 @@ export default function PostJob() {
 
   if (res.ok) {
     alert("Job posted successfully!");
-    navigate("/jobs");
+    navigate("/recruiter-dashboard");  // better redirect
   } else {
     alert(data.message || "Error posting job");
   }
 };
+
 
 
   return (
