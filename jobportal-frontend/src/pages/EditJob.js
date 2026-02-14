@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-
+import "../styles/EditJob.css";
 export default function EditJob() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -36,10 +36,11 @@ export default function EditJob() {
   };
 
   return (
-    <div className="container">
-      <h2>Edit Job</h2>
+    <div className="editjob-container">
+    <h2 className="editjob-heading">Edit Job</h2>
 
-      <form onSubmit={handleUpdate}>
+    <br></br>
+      <form className="editjob-form" onSubmit={handleUpdate}>
         <input
           name="title"
           value={job.title}
@@ -65,7 +66,7 @@ export default function EditJob() {
           placeholder="Description"
         />
 
-        <button type="submit">Update Job</button>
+        <button type="submit" className="btn-update">Update Job</button>
       </form>
     </div>
   );

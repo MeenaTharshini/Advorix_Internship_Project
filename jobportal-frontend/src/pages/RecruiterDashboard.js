@@ -37,12 +37,28 @@ export default function RecruiterDashboard() {
       ) : (
         <div className="dash-cards">
           {jobs.map(job => (
-            <div key={job._id} className="dash-card">
-              <p><b>{job.title}</b> — {job.company}</p>
-              <button onClick={() => navigate(`/editjob/${job._id}`)}> Update </button>
-              <button onClick={() => deleteJob(job._id)}> Delete </button>
-            </div>
-          ))}
+  <div key={job._id} className="dash-card job-card">
+    <h3>{job.title}</h3>
+    <p>{job.company}</p>
+
+    <div className="card-buttons">
+      <button 
+        className="btn btn-update"
+        onClick={() => navigate(`/editjob/${job._id}`)}
+      >
+        Update
+      </button>
+
+      <button 
+        className="btn btn-delete"
+        onClick={() => deleteJob(job._id)}
+      >
+        Delete
+      </button>
+    </div>
+  </div>
+))}
+
         </div>
       )}
     </div>

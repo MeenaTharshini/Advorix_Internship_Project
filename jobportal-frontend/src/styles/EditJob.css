@@ -1,0 +1,130 @@
+/* ============================= */
+/* EDIT JOB CONTAINER */
+/* ============================= */
+/* ============================= */
+/* EDIT JOB CONTAINER */
+/* ============================= */
+
+.editjob-container {
+  min-height: 100vh;
+  background: linear-gradient(-45deg, #4a90e2, #6dd5fa, #3a7bd5, #00d2ff);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+
+  display: flex;
+  flex-direction: column;   /* Important */
+  align-items: center;      /* Center horizontally */
+  padding: 60px 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Heading */
+.editjob-heading {
+  color: white;
+  font-size: 34px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  text-align: center;
+  width: 100%;
+}
+
+/* Keep your form styling same */
+.editjob-form {
+  width: 100%;
+  max-width: 500px;
+  padding: 40px;
+  border-radius: 20px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.95),
+    rgba(255,255,255,0.8)
+  );
+
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+  backdrop-filter: blur(12px);
+}
+
+
+.editjob-form:hover {
+  transform: translateY(-5px);
+}
+
+/* ============================= */
+/* HEADINGS */
+/* ============================= */
+
+.editjob-container h2 {
+  text-align: center;
+  color: white;
+  font-size: 32px;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+/* ============================= */
+/* INPUTS */
+/* ============================= */
+
+.editjob-form input,
+.editjob-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 18px;
+
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.1);
+
+  font-size: 14px;
+  transition: 0.3s ease;
+  outline: none;
+}
+
+.editjob-form input:focus,
+.editjob-form textarea:focus {
+  border-color: #3a7bd5;
+  box-shadow: 0 0 8px rgba(58,123,213,0.3);
+}
+
+.editjob-form textarea {
+  resize: none;
+  min-height: 100px;
+}
+
+/* ============================= */
+/* UPDATE BUTTON */
+/* ============================= */
+
+.btn-update {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+
+  background: linear-gradient(135deg, #4a90e2, #3a7bd5);
+  transition: 0.3s ease;
+}
+
+.btn-update:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(58,123,213,0.5);
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 768px) {
+  .editjob-form {
+    padding: 25px;
+  }
+
+  .editjob-container h2 {
+    font-size: 26px;
+  }
+}
