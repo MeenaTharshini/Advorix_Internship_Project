@@ -81,7 +81,8 @@ Implemented using:
     MongoDB
     
 ## 📁 Project Structure
-'''
+
+```
 JobPortal
 │
 ├── jobportal-backend
@@ -122,4 +123,4 @@ JobPortal
 │   └── .gitignore
 │
 └── README.md
-'''
+```
