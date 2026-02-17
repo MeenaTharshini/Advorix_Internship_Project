@@ -12,7 +12,7 @@ export default function PostJob() {
     description: "",
   });
 
-  // 🔐 Access control
+  // 🔐 Access Control
   useEffect(() => {
     const raw = localStorage.getItem("user");
 
@@ -38,30 +38,33 @@ export default function PostJob() {
   };
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  const token = localStorage.getItem("token");
+    const token = localStorage.getItem("token");
 
-  const res = await fetch("http://localhost:5000/api/jobs", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": `Bearer ${token}`
-    },
-    body: JSON.stringify(job),
-  });
+    try {
+      const res = await fetch("http://localhost:5000/api/jobs", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(job),
+      });
 
-  const data = await res.json();
+      const data = await res.json();
 
-  if (res.ok) {
-    alert("Job posted successfully!");
-    navigate("/recruiter-dashboard");  // better redirect
-  } else {
-    alert(data.message || "Error posting job");
-  }
-};
-
-
+      if (res.ok) {
+        alert("Job posted successfully! 🎉");
+        navigate("/recruiter-dashboard", { replace: true });
+      } else {
+        alert(data.message || "Error posting job");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Server error");
+    }
+  };
 
   return (
     <div className="postjob-container">
@@ -97,7 +100,18 @@ export default function PostJob() {
             required
           />
 
-          <button type="submit">Post Job</button>
+          <button type="submit" className="post-btn">
+            Post Job
+          </button>
+
+          {/* ✅ Back Home Button */}
+          <button
+            type="button"
+            className="back-home-btn"
+            onClick={() => navigate("/recruiter-dashboard")}
+          >
+            ← Back to Home
+          </button>
         </form>
       </div>
     </div>

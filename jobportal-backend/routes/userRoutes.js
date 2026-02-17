@@ -1,11 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
-// check filename!
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-// SIGNUP
+// ---------------- SIGNUP ----------------
 router.post("/signup", async (req, res) => {
   try {
     const { name, email, password, role } = req.body;
@@ -16,54 +15,44 @@ router.post("/signup", async (req, res) => {
       name,
       email,
       password: hashedPassword,
-      role,
+      role: role || "seeker",  // fallback if role not provided
     });
 
     await user.save();
-
-    res.json({ message: "User registered successfully" });
+    res.status(201).json({ message: "User registered successfully", user });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
 });
 
-// ✅ LOGIN (CORRECT)
+// ---------------- LOGIN ----------------
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
 
     const user = await User.findOne({ email });
-
-    if (!user) {
-      return res.status(400).json({ message: "User not found" });
-    }
+    if (!user) return res.status(400).json({ message: "User not found" });
 
     const isMatch = await bcrypt.compare(password, user.password);
-
-    if (!isMatch) {
-      return res.status(400).json({ message: "Password incorrect" });
-    }
+    if (!isMatch) return res.status(400).json({ message: "Password incorrect" });
 
     const token = jwt.sign(
-  { id: user._id, name: user.name, role: user.role },
-  process.env.JWT_SECRET,
-  { expiresIn: "1h" }
-);
+      { id: user._id, role: user.role },
+      process.env.JWT_SECRET,
+      { expiresIn: "1h" }
+    );
 
-
+    // ✅ Send response once
     res.status(200).json({
-  message: "Login successful",
-  token,
-  user: {
-    _id: user._id,      // ⭐ ADD THIS
-    name: user.name,
-    email: user.email,
-    role: user.role,
-  },
-});
-
-
-
+      message: "Login successful",
+      token,
+      user: {
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        role: user.role
+      }
+    });
 
   } catch (err) {
     console.error(err);

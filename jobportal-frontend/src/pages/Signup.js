@@ -27,6 +27,10 @@ export default function Signup() {
     navigate("/login");
   };
 
+  const handleGoToLogin = () => {
+  navigate("/login");  // make sure this matches your route
+};
+
   return (
     <div className="signup-container">
       <form className="signup-form" onSubmit={handleSubmit}>
@@ -39,6 +43,14 @@ export default function Signup() {
           <option value="recruiter">Recruiter / Hiring</option>
         </select>
         <button type="submit">Signup</button>
+        <button 
+  type="button"
+  onClick={handleGoToLogin}
+  className="back-btn"
+>
+  Go Back to Login
+</button>
+
       </form>
     </div>
   );

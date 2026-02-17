@@ -61,6 +61,11 @@
   background: #357abd;
   transform: translateY(-2px);
 }
+.back-btn {
+  margin-top: 10px;
+  background-color: #ccc;
+  color: black;
+}
 
 /* Smooth appearance */
 @keyframes fadeIn {

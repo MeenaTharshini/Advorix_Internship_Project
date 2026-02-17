@@ -54,6 +54,10 @@ export default function Login() {
       alert("Server error");
     }
   };
+  const handleGoBack = () => {
+  navigate("/signup");   // make sure this matches your route path
+};
+
 
   return (
     <div className="login-container">
@@ -62,6 +66,15 @@ export default function Login() {
         <input name="email" placeholder="Email" onChange={handleChange} required />
         <input name="password" type="password" placeholder="Password" onChange={handleChange} required />
         <button type="submit">Login</button>
+        <button 
+  type="button" 
+  onClick={handleGoBack} 
+  className="back-btn"
+>
+  Go Back to Signup
+</button>
+
+
       </form>
     </div>
   );

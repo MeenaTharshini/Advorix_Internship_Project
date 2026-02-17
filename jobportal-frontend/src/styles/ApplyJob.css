@@ -1,0 +1,74 @@
+.apply-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #4a90e2, #6dd5fa);
+  padding: 40px;
+}
+
+.apply-card {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.apply-card h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #4a90e2;
+}
+
+.apply-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.apply-form input,
+.apply-form textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.apply-form input:focus,
+.apply-form textarea:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.4);
+}
+
+.apply-button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  background: #4a90e2;
+  color: white;
+  transition: 0.3s;
+}
+
+.apply-button:hover {
+  background: #357abd;
+}
+.back-button {
+  margin-top: 10px;
+  background-color: #555;
+  color: white;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  opacity: 0.9;
+}
+

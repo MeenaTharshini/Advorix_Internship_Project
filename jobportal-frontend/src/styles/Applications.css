@@ -43,3 +43,17 @@
 .app-card p b {
   color: #4a90e2;
 }
+.back-dashboard-btn {
+  margin-bottom: 15px;
+  background-color: #ffffff;
+  color: rgb(33, 17, 17);
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.back-dashboard-btn:hover {
+  opacity: 0.9;
+}
+
