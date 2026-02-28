@@ -6,7 +6,6 @@ const path = require("path");
 
 const app = express();
 
-// ✅ Middleware
 app.use(cors({
   origin: [
     "http://localhost:3000",
@@ -17,35 +16,30 @@ app.use(cors({
 
 app.use(express.json());
 
-// ✅ API Routes
-const userRoutes = require('./routes/userRoutes');
-app.use('/api/users', userRoutes);
+// API routes
+app.use('/api/users', require('./routes/userRoutes'));
+app.use('/api/jobs', require('./routes/jobRoutes'));
+app.use('/api/applications', require('./routes/applicationRoutes'));
 
-const jobRoutes = require('./routes/jobRoutes');
-app.use('/api/jobs', jobRoutes);
+// ✅ Serve React build
+app.use(express.static(path.join(__dirname, "build")));
 
-const applicationRoutes = require('./routes/applicationRoutes');
-app.use('/api/applications', applicationRoutes);
-
-// ✅ Serve React frontend
-const buildPath = path.join(__dirname, "build");
-
-app.use(express.static(buildPath));
-
-app.get("/*", (req, res) => {
-  if (!req.path.startsWith("/api")) {
-    res.sendFile(path.join(buildPath, "index.html"));
+// ✅ React SPA fallback (FIXED)
+app.use((req, res, next) => {
+  if (req.method === "GET" && !req.path.startsWith("/api")) {
+    res.sendFile(path.join(__dirname, "build", "index.html"));
+  } else {
+    next();
   }
 });
 
-// ✅ Connect MongoDB THEN start server
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
     console.log("MongoDB Connected Successfully");
 
     const PORT = process.env.PORT || 5000;
-    app.listen(PORT, () => {
-      console.log(`Server running on port ${PORT}`);
-    });
+    app.listen(PORT, () =>
+      console.log(`Server running on port ${PORT}`)
+    );
   })
-  .catch((err) => console.log("MongoDB connection error:", err));
+  .catch(err => console.log(err));
