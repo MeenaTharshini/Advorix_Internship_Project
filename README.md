@@ -8,21 +8,8 @@ This repository contains projects completed as part of my
 ## Intern Details
 - **Name:** Meena Tharshini I  
 - **Domain:** Web Development (Full Stack)
-- **Organization:** Advorix
-- **Duration:** February 2026
-
----
-
-## 📌 Internship Requirements
-As per Advorix guidelines, the following tasks were assigned:
-
-## 🔹Compulsory Tasks
-Build a complete CRUD Application
-Create REST APIs (GET, POST, PUT, DELETE)
-User Authentication (Login / Signup)
-
-## 🔹Optional Task (Choose One)
-Create a Multi-Page Application using React Router
+- **Organization:** Advorix Technologies
+- **Duration:** February 2026 - March 2026
 
 ---
 ## 🚀 Submitted Project
